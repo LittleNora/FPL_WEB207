@@ -28,5 +28,7 @@ window.CourseController = function ($scope, $routeParams, $route) {
         }
         $scope.course = $scope.courses.find(course => course.id == id);
         // console.log(course.name);
+    } else {
+        $scope.title = "Chương trình đào tạo";
     }
 };
