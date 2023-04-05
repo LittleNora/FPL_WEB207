@@ -4,42 +4,18 @@
             {{ course.name }}
         </h1>
         <p class="text-secondary">
-            Cung cấp kiến thức cơ bản, nâng cao cần thiết để làm việc với DevOps
+            {{ course.desc }}
         </p>
         <div class="my-5">
             <h3 class="fs-1">
                 Bạn sẽ học được gì?
             </h3>
             <div class="row g-2 my-2">
-                <p class="col-6" style="font-size: 18px;">
+                <p class="col-6" style="font-size: 18px;" ng-repeat="item in course.target">
                     <i class="fa-solid fa-check text-warning"></i>
                     <span class="text-secondary">
-                            Hiểu và có mindset đúng đắn về DevOps.
-                        </span>
-                </p>
-                <p class="col-6" style="font-size: 18px;">
-                    <i class="fa-solid fa-check text-warning"></i>
-                    <span class="text-secondary">
-                             Nắm được các kiến thức cơ bản về DevOps Concept: Cloud, CICD, IaC, Monitoring, Container & Microservice.
-                        </span>
-                </p>
-                <p class="col-6" style="font-size: 18px;">
-                    <i class="fa-solid fa-check text-warning"></i>
-                    <span class="text-secondary">
-                             Hiểu biết cơ bản về Build Tool Concept của một số ngôn ngữ phổ biến: Java, Python, Node JS.
-                        </span>
-                </p>
-                <p class="col-6" style="font-size: 18px;">
-                    <i class="fa-solid fa-check text-warning"></i>
-                    <span class="text-secondary">
-                            Có kiến thức để làm việc với các tool chain phổ biến.
-                        </span>
-                </p>
-                <p class="col-6" style="font-size: 18px;">
-                    <i class="fa-solid fa-check text-warning"></i>
-                    <span class="text-secondary">
-                             Sử dụng thành thạo các công cụ DevOps phổ biến.
-                        </span>
+                            {{ item }}
+                    </span>
                 </p>
             </div>
         </div>
@@ -48,160 +24,21 @@
                 Lộ trình khóa học
             </h3>
             <div class="my-3 route-list" style="width: 80%;">
-                <div class="shadow rounded p-3 mb-3 route-item">
+                <div class="shadow rounded p-3 mb-3 route-item" ng-repeat="route in course.routes">
                     <div class="d-flex justify-content-between align-items-center route-title"
                          style="cursor: pointer; user-select: none;">
                         <h6 class="fs-4 m-0">
-                            Linux
+                            {{ route.overview.title }}
                         </h6>
                         <span class="text-secondary">
-                                12 giờ (4 buổi)
+                                {{ route.overview.time }}
                                 <i class="ms-2 fa-solid fa-angle-down"
                                    style="transform: rotate(0deg);"></i>
                             </span>
                     </div>
                     <div class="mt-3 route-content" style="display: none;">
-                        <p class="text-secondary mb-2">
-                            Session 01: Linux Introduction
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 02: Work with Files and Directories
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 03: System Management
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 04: Shell Scripts
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 05: Topic revision and Final Test
-                        </p>
-                    </div>
-                </div>
-                <div class="shadow rounded p-3 mb-3 route-item">
-                    <div class="d-flex justify-content-between align-items-center route-title"
-                         style="cursor: pointer; user-select: none;">
-                        <h6 class="fs-4 m-0">
-                            AWS Basic
-                        </h6>
-                        <span class="text-secondary">
-                                21 giờ (6 buổi)
-                                <i class="ms-2 fa-solid fa-angle-down"
-                                   style="transform: rotate(0deg);"></i>
-                            </span>
-                    </div>
-                    <div class="mt-3 route-content" style="display: none;">
-                        <p class="text-secondary mb-2">
-                            Session 01: AWS Introduction + IAM
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 02: Elastic Computing Cloud
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 03: Virtual Private Cloud
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 04: AWS Storage + S3
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 05: Load Balancing + AutoScaling
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 06: Database + Route53 + CloudWatch + CloudTrail
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 07: Topic revision and Final Test
-                        </p>
-                    </div>
-                </div>
-                <div class="shadow rounded p-3 mb-3 route-item">
-                    <div class="d-flex justify-content-between align-items-center route-title"
-                         style="cursor: pointer; user-select: none;">
-                        <h6 class="fs-4 m-0">
-                            Docker
-                        </h6>
-                        <span class="text-secondary">
-                                12 giờ (3 buổi)
-                                <i class="ms-2 fa-solid fa-angle-down"
-                                   style="transform: rotate(0deg);"></i>
-                            </span>
-                    </div>
-                    <div class="mt-3 route-content" style="display: none;">
-                        <p class="text-secondary mb-2">
-                            Session 01: Docker Introduction & Dockerfile
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 02: Docker networking & Docker Volume
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 03: Docker-compose & Docker swarm
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 04: Topics revision and Final Test
-                        </p>
-                    </div>
-                </div>
-                <div class="shadow rounded p-3 mb-3 route-item">
-                    <div class="d-flex justify-content-between align-items-center route-title"
-                         style="cursor: pointer; user-select: none;">
-                        <h6 class="fs-4 m-0">
-                            Kubernetes
-                        </h6>
-                        <span class="text-secondary">
-                                21 giờ (4 buổi)
-                                <i class="ms-2 fa-solid fa-angle-down"
-                                   style="transform: rotate(0deg);"></i>
-                            </span>
-                    </div>
-                    <div class="mt-3 route-content" style="display: none;">
-                        <p class="text-secondary mb-2">
-                            Session 01: Kubernetes Introduction & Setup
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 02: Namespace, Pod, Label, Selector, Service, Replica Set, Deployment, Daemon
-                            Set, Stateful Set
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 03: ClusterIP, NodePort, LoadBalancer, Ingress, Ingress, Headless
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 04: Storage and Volume
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 05: Topics revision and Final Test
-                        </p>
-                    </div>
-                </div>
-                <div class="shadow rounded p-3 mb-3 route-item">
-                    <div class="d-flex justify-content-between align-items-center route-title"
-                         style="cursor: pointer; user-select: none;">
-                        <h6 class="fs-4 m-0">
-                            DevOps_CICD
-                        </h6>
-                        <span class="text-secondary">
-                                24 giờ (7 buổi)
-                                <i class="ms-2 fa-solid fa-angle-down"
-                                   style="transform: rotate(0deg);"></i>
-                            </span>
-                    </div>
-                    <div class="mt-3 route-content" style="display: none;">
-                        <p class="text-secondary mb-2">
-                            Session 01: Git
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 02: Ansible
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 03: Terraform
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 04, 05, 06: Jenkins
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 07: Prometheus, Grafana, Alert Manager
-                        </p>
-                        <p class="text-secondary mb-2">
-                            Session 08: Topics revision and Final Test
+                        <p class="text-secondary mb-2" ng-repeat="session in route.sessions">
+                            {{ session }}
                         </p>
                     </div>
                 </div>
@@ -212,33 +49,21 @@
                 Yêu cầu
             </h3>
             <div class="my-3">
-                <p class="" style="font-size: 18px">
+                <p class="" style="font-size: 18px" ng-repeat="requirement in course.requirement">
                     <i class="fa-solid fa-check text-warning me-2"></i>
                     <span class="text-secondary">
-                            Học viên có tiếng Anh đọc hiểu tốt
-                        </span>
-                </p>
-                <p class="" style="font-size: 18px">
-                    <i class="fa-solid fa-check text-warning me-2"></i>
-                    <span class="text-secondary">
-                            Học viên có máy tính cá nhân tối thiểu 4G RAM
-                        </span>
-                </p>
-                <p class="" style="font-size: 18px">
-                    <i class="fa-solid fa-check text-warning me-2"></i>
-                    <span class="text-secondary">
-                            Trước khi tham gia khóa học, các học viên sẽ tham gia Placement test (điểm bài test cần đạt từ 70% trở lên để đáp ứng tiêu chí đầu vào khóa học, với những bạn có điểm bài test cao có thể được trao học bổng tùy mức độ)
-                        </span>
+                            {{ requirement }}
+                    </span>
                 </p>
             </div>
         </div>
     </div>
     <div class="col-3">
         <div class="mb-3">
-            <img src="assets/img/courses/devops.jpg" alt="" class="w-100">
+            <img src="{{ course.img }}" alt="" class="w-100">
             <div class="p-3 bg-secondary" style="--bs-bg-opacity: .1;">
                 <h5 class="text-success">
-                    11.900.000 VNĐ
+                    {{ course.price }}
                 </h5>
                 <div class="mt-3 d-flex">
                     <div class="me-3">
@@ -249,7 +74,7 @@
                             Thời lượng
                         </h6>
                         <p class="text-secondary" style="font-size: 18px;">
-                            90 giờ
+                            {{ course.time }}
                         </p>
                     </div>
                 </div>
@@ -262,7 +87,7 @@
                             Số lượng học viên
                         </h6>
                         <p class="text-secondary" style="font-size: 18px;">
-                            50
+                            {{ course.students }}
                         </p>
                     </div>
                 </div>
@@ -275,7 +100,7 @@
                             Địa điểm
                         </h6>
                         <p class="text-secondary" style="font-size: 18px;">
-                            Toàn quốc, Hồ Chí Minh, Đà Nẵng
+                            {{ course.address }}
                         </p>
                     </div>
                 </div>
@@ -291,15 +116,17 @@
             <h5 class="text-secondary fw-bolder fs-4 mb-3" style="--bs-text-opacity: .7;">
                 Giảng viên
             </h5>
-            <img src="assets/img/mentor/mentor1.jpg" alt="" class="w-100">
-            <div class="mt-2 text-secondary">
-                <p class="fw-bold fs-5 m-0">
-                    Haibara
-                </p>
-                <span>
+            <div ng-repeat="mentor in course.mentor" class="mb-3">
+                <img src="{{ mentor.avatar }}" alt="" class="w-100">
+                <div class="mt-2 text-secondary">
+                    <p class="fw-bold fs-5 m-0">
+                        {{ mentor.name }}
+                    </p>
+                    <span>
                         <i class="fa-solid fa-location-dot"></i>
-                        Hà Nội
+                        {{ mentor.address }}
                     </span>
+                </div>
             </div>
         </div>
         <div class="mb-3 py-3">
@@ -309,36 +136,36 @@
             <div class="mt-2 text-secondary">
                 <div class="row align-items-center mb-3">
                     <div class="col-3 pe-0">
-                        <a href="#" class="text-decoration-none">
+                        <a href="#!/khoa-hoc/3" class="text-decoration-none">
                             <img src="assets/img/courses/devops.jpg" alt="" class="w-100 h-100">
                         </a>
                     </div>
                     <div class="col-9">
-                        <a href="#" class="text-secondary text-decoration-none fw-bolder">
+                        <a href="#!/khoa-hoc/3" class="text-secondary text-decoration-none fw-bolder">
                             DevOps Foundation
                         </a>
                     </div>
                 </div>
                 <div class="row align-items-center mb-3">
                     <div class="col-3 pe-0">
-                        <a href="#" class="text-decoration-none">
+                        <a href="#!/khoa-hoc/1" class="text-decoration-none">
                             <img src="assets/img/courses/software-testing.jpg" alt="" class="w-100 h-100">
                         </a>
                     </div>
                     <div class="col-9">
-                        <a href="#" class="text-secondary text-decoration-none fw-bolder">
+                        <a href="#!/khoa-hoc/1" class="text-secondary text-decoration-none fw-bolder">
                             Software Testing
                         </a>
                     </div>
                 </div>
                 <div class="row align-items-center mb-3">
                     <div class="col-3 pe-0">
-                        <a href="#" class="text-decoration-none">
+                        <a href="#!/khoa-hoc/2" class="text-decoration-none">
                             <img src="assets/img/courses/fullstack-dotnet.jpg" alt="" class="w-100 h-100">
                         </a>
                     </div>
                     <div class="col-9">
-                        <a href="#" class="text-secondary text-decoration-none fw-bolder">
+                        <a href="#!/khoa-hoc/2" class="text-secondary text-decoration-none fw-bolder">
                             Fullstack .Net Web Developer
                         </a>
                     </div>

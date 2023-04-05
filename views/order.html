@@ -6,92 +6,194 @@
         <p class="text-secondary fw-bolder fs-5">
             Điền thông tin của bạn để nhận tư vấn về khóa học
         </p>
-        <form action="" class="row g-3 mt-3">
+        <div class="row g-3 mt-3">
+            <input type="hidden" ng-model="inputs.course_id" value="{{ course.id }}">
             <div class="col-6">
-                <div class="form-outline mb-3">
-                    <input type="text" id="fullname" class="form-control border"/>
+                <div class="form-outline">
+                    <input type="text" id="fullname" class="form-control border" ng-model="inputs.fullname"/>
                     <label class="form-label" for="fullname">Họ và tên *</label>
                 </div>
+                <span class="text-danger" ng-if="errors.fullname">{{ errors.fullname }}</span>
             </div>
             <div class="col-6">
-                <div class="form-outline mb-3">
-                    <input type="text" id="tel" class="form-control border"/>
+                <div class="form-outline">
+                    <input type="text" id="identity_id" class="form-control border" ng-model="inputs.identity_id"/>
+                    <label class="form-label" for="identity_id">CMT/CCCD</label>
+                </div>
+                <span class="text-danger" ng-if="errors.identity_id">{{ errors.identity_id }}</span>
+            </div>
+            <div class="col-6">
+                <div class="form-outline">
+                    <input type="text" id="tel" class="form-control border" ng-model="inputs.tel"/>
                     <label class="form-label" for="tel">Số điện thoại *</label>
                 </div>
+                <span class="text-danger" ng-if="errors.tel">{{ errors.tel }}</span>
             </div>
             <div class="col-6">
-                <div class="form-outline mb-3">
-                    <input type="date" id="dob" class="form-control border"/>
+                <div class="form-outline">
+                    <input type="date" id="dob" class="form-control border" ng-model="inputs.dob"/>
                     <label class="form-label" for="dob">Ngày sinh</label>
                 </div>
+                <span class="text-danger" ng-if="errors.dob">{{ errors.dob }}</span>
             </div>
             <div class="col-6">
-                <div class="form-outline mb-3">
-                    <input type="text" id="email" class="form-control border"/>
+                <div class="form-outline">
+                    <input type="text" id="email" class="form-control border" ng-model="inputs.email"/>
                     <label class="form-label" for="email">Địa chỉ email *</label>
                 </div>
+                <span class="text-danger" ng-if="errors.email">{{ errors.email }}</span>
             </div>
-            <div class="form-outline mb-3 col-6">
-                <select name="" id="" class="form-select">
+            <div class="form-outline col-6">
+                <select name="" id="" class="form-select" ng-model="inputs.location">
                     <option value="">
                         Khu vực
                     </option>
-                    <option value="1">
+                    <option value="Toàn quốc">
                         Toàn quốc
                     </option>
-                    <option value="1">
+                    <option value="Hà Nội">
                         Hà Nội
                     </option>
-                    <option value="1">
+                    <option value="Hồ Chí Minh">
                         Hồ Chí Minh
                     </option>
-                    <option value="1">
+                    <option value="Đà Nẵng">
                         Đà Nẵng
                     </option>
                 </select>
+                <span class="text-danger" ng-if="errors.location">{{ errors.location }}</span>
             </div>
-            <div class="form-outline mb-3 col-6">
-                <select name="" id="" class="form-select">
+            <div class="form-outline col-6">
+                <select name="" id="" class="form-select" ng-model="inputs.time">
                     <option value="">
                         Thời gian học
                     </option>
-                    <option value="1">
+                    <option value="Full time">
                         Full time
                     </option>
-                    <option value="1">
+                    <option value="Part time">
                         Part time
                     </option>
                 </select>
+                <span class="text-danger" ng-if="errors.time">{{ errors.time }}</span>
             </div>
             <div class="col-6">
-                <div class="form-outline mb-3">
-
+                <div class="form-outline">
                     <label for="" class="form-label me-3">Giới tính:</label>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="gender" id="male"
-                               value="male" checked/>
+                               value="Nam" checked ng-model="inputs.gender"/>
                         <label class="form-check-label" for="male">Nam</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="gender" id="female"
-                               value="female"/>
+                               value="Nữ" ng-model="inputs.gender"/>
                         <label class="form-check-label" for="female">Nữ</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="gender" id="other"
-                               value="other"/>
+                               value="Khác" ng-model="inputs.gender"/>
                         <label class="form-check-label" for="other">Khác</label>
                     </div>
                 </div>
+                <span class="text-danger" ng-if="errors.gender">{{ errors.gender }}</span>
             </div>
             <div class="col-12 d-flex justify-content-center gap-3">
                 <button type="reset" class="btn btn-info text-white fw-bolder rounded-pill py-2 px-3">
                     Reset
                 </button>
-                <button class="btn btn-warning text-white fw-bolder rounded-pill py-2 px-3">
+                <button class="btn btn-warning text-white fw-bolder rounded-pill py-2 px-3" ng-click="submit()">
                     ĐĂNG KÝ
                 </button>
             </div>
-        </form>
+        </div>
     </div>
+    <!-- Button trigger modal -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+
+        <!-- Modal -->
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="alert alert-success m-0 w-100">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">
+                            Đăng ký tư vấn khóa học thành công, chúng tôi sẽ sớm liên lạc tới bạn!
+                        </h1>
+                    </div>
+                    <!--                    <button type="button" class="btn-close" data-bs-dismiss="modal"-->
+                    <!--                            aria-label="Close"></button>-->
+                </div>
+                <div class="modal-body row">
+                    <div class="col-6">
+                        <h4>Thông tin khóa học</h4>
+                        <table class="table table-hover">
+                            <tr>
+                                <th>Tên khóa học</th>
+                                <td>{{ course.name }}</td>
+                            </tr>
+                            <tr>
+                                <th>Giá</th>
+                                <td>{{ course.price }}</td>
+                            </tr>
+                            <tr>
+                                <th>Thời lượng</th>
+                                <td>{{ course.time }}</td>
+                            </tr>
+                            <tr>
+                                <th>Địa điểm</th>
+                                <td>{{ course.address }}</td>
+                            </tr>
+                            <tr>
+                                <th>Giảng viên</th>
+                                <td>{{ getMentor() }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-6">
+                        <h4>Thông tin học viên</h4>
+                        <table class="table table-hover">
+                            <tr>
+                                <th>Họ tên</th>
+                                <td>{{ data.fullname }}</td>
+                            </tr>
+                            <tr>
+                                <th>CMT/CCCD</th>
+                                <td>{{ data.identity_id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Giới tính</th>
+                                <td>{{ data.gender }}</td>
+                            </tr>
+                            <tr>
+                                <th>Ngày sinh</th>
+                                <td>{{ data.dob }}</td>
+                            </tr>
+                            <tr>
+                                <th>Số điện thoại</th>
+                                <td>{{ data.tel }}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{ data.email }}</td>
+                            </tr>
+                            <tr>
+                                <th>Thời gian học</th>
+                                <td>{{ data.time }}</td>
+                            </tr>
+                            <tr>
+                                <th>Khu vực</th>
+                                <td>{{ data.location }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button data-bs-toggle="modal" data-bs-target="#exampleModal" id="modalBtn" class="d-none">Click</button>
 </div>

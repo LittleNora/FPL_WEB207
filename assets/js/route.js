@@ -33,6 +33,7 @@ myApp.config(function($routeProvider) {
 myApp.run(function($rootScope) {
     $rootScope.$on('$routeChangeSuccess', function(event, current, previous) {
         loadJs("https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js");
+        // loadJs("assets/js/handleCourseRoute.js");
         $rootScope.title = current.$$route.title;
     });
 });
